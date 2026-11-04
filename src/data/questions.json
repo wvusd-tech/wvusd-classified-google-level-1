@@ -1,0 +1,522 @@
+[
+  {
+    "id": 1,
+    "module": "Chrome Browser",
+    "question": "You want to keep your personal Gmail bookmarks, saved passwords, and browsing history completely separate from your school computer's daily work. What is the best practice in Google Chrome?",
+    "options": [
+      "Open an Incognito window every morning for your school work",
+      "Use a dedicated District Chrome Profile signed into your work account with a distinct theme",
+      "Clear your browser cache and cookies at the end of every school day",
+      "Use a separate bookmarks folder labeled 'Personal' on the work toolbar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Creating a dedicated District Chrome Profile isolates work bookmarks, extensions, and credentials from personal accounts."
+  },
+  {
+    "id": 2,
+    "module": "Chrome Browser",
+    "question": "Every morning you open Aeries SIS, Outlook Web, Timekeeping, and the Daily Attendance Sheet. How can you organize these tabs together by color and collapse them with a single click when you need screen space?",
+    "options": [
+      "Add them to your Reading List",
+      "Right-click a tab and add them to a color-coded Tab Group",
+      "Bookmark all four pages into the 'Other Bookmarks' folder",
+      "Use the History menu to reopen closed tabs each morning"
+    ],
+    "correctIndex": 1,
+    "explanation": "Color-coded Tab Groups let you bundle routine daily workflows together and expand/collapse them on the tab bar with one click."
+  },
+  {
+    "id": 3,
+    "module": "Chrome Browser",
+    "question": "What happens when you right-click a mission-critical tab in Chrome (like your SIS or Front Desk Sign-In sheet) and select 'Pin'?",
+    "options": [
+      "It locks the webpage so no one else in the office can edit the data",
+      "It shrinks the tab to a compact icon on the far left of the tab bar and hides the 'X' close button so you don't accidentally close it",
+      "It saves an offline PDF copy of the page to your Desktop",
+      "It automatically refreshes the tab every 60 seconds"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pinned tabs lock to the far left as compact icons without a close button, preventing accidental closure during busy front-desk hours."
+  },
+  {
+    "id": 4,
+    "module": "Chrome Browser",
+    "question": "Your Chrome Bookmarks Bar is overflowing, pushing important school links into a hidden dropdown menu. How can you fit twice as many links visible across the top of your screen while keeping them organized?",
+    "options": [
+      "Zoom out your entire browser screen to 50%",
+      "Create subject folders on the Bookmarks Bar and shorten bookmark labels (or delete the text label entirely so only the site's recognizable icon shows)",
+      "Open a new browser window for every single bookmark",
+      "Save links inside a Word document on your desktop instead"
+    ],
+    "correctIndex": 1,
+    "explanation": "Using folders and short labels (or icon-only bookmarks) maximizes Bookmarks Bar real estate for daily school tools."
+  },
+  {
+    "id": 5,
+    "module": "Chrome Browser",
+    "question": "How can you customize your Chrome toolbar to place quick-access shortcut buttons (like Print, Side Panel, or Clear Browsing Data) right next to the address bar?",
+    "options": [
+      "Open 'Customize Chrome' (via the New Tab page or three-dot menu > More Tools > Customize Chrome) and toggle on Toolbar buttons",
+      "Install third-party toolbar extensions from unknown websites",
+      "Right-click the Windows desktop taskbar",
+      "Chrome toolbar buttons are permanently fixed and cannot be customized"
+    ],
+    "correctIndex": 0,
+    "explanation": "Chrome's built-in 'Customize Chrome' panel lets you pin frequently used utility buttons directly to the top toolbar."
+  },
+  {
+    "id": 6,
+    "module": "Tasks & Keep",
+    "question": "You have a daily front-office checklist (8:15 AM Morning Bell Routine, 9:30 AM Attendance Cut-off, 2:45 PM Dismissal Duties) that needs to pop up automatically every weekday. Which tool is designed for scheduled, recurring to-dos?",
+    "options": [
+      "Google Keep sticky notes with color labels",
+      "Google Tasks configured with a repeating weekday schedule",
+      "A pinned comment inside a Google Doc",
+      "Chrome Bookmark folders"
+    ],
+    "correctIndex": 1,
+    "explanation": "Google Tasks supports due dates and custom repeating schedules (e.g., Every Mon-Fri) directly from the Workspace side panel."
+  },
+  {
+    "id": 7,
+    "module": "Tasks & Keep",
+    "question": "While working inside a Google Sheet or Google Doc, how can you view your quick-reference bell schedules, staff extensions, and fee codes in Google Keep without switching browser tabs?",
+    "options": [
+      "Open the collapsible right-hand Workspace Side Panel and click the yellow Google Keep icon",
+      "Use File > Import to pull your Keep notes into the spreadsheet cells",
+      "Turn on Pageless mode in Google Docs",
+      "Keep notes can only be viewed by opening keep.google.com in a new window"
+    ],
+    "correctIndex": 0,
+    "explanation": "The right-hand Workspace Side Panel in Docs, Sheets, Slides, and Drive gives you one-click access to Google Keep notes and Tasks."
+  },
+  {
+    "id": 8,
+    "module": "Tasks & Keep",
+    "question": "What is the primary workflow difference between Google Keep and Google Tasks for a school office?",
+    "options": [
+      "Keep is only available on mobile phones, while Tasks only works on desktop computers",
+      "Keep is ideal for visual reference sticky notes (bell schedules, extension lists, fee codes), while Tasks is built for date-driven, recurring checklists",
+      "Tasks allows you to attach images and drawings, whereas Keep only supports plain text",
+      "Keep automatically deletes notes after 24 hours, whereas Tasks keeps them permanently"
+    ],
+    "correctIndex": 1,
+    "explanation": "Keep excels as a digital bulletin board for reference notes, while Tasks handles time-sensitive, recurring checklists."
+  },
+  {
+    "id": 9,
+    "module": "Tasks & Keep",
+    "question": "You have 25 notes in Google Keep, including your daily Bell Schedule and Staff Extension Directory. How do you ensure those two critical notes always stay at the very top of your Keep side panel?",
+    "options": [
+      "Rename the notes starting with the letter 'A'",
+      "Click the 'Pin note' thumbtack icon in the top corner of those two Keep notes",
+      "Delete all of your other notes every afternoon",
+      "Change the font size of the note to 24pt"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pinning a Google Keep note locks it into the top 'Pinned' section of both the Keep web app and the Workspace side panel."
+  },
+  {
+    "id": 10,
+    "module": "Tasks & Keep",
+    "question": "When someone assigns a task to you inside a Google Chat Space or a Google Doc comment, where does that action item automatically appear so you can track all your responsibilities in one place?",
+    "options": [
+      "In the Google Drive Trash folder",
+      "Inside your personal Google Tasks list (and on your Google Calendar if it has a due date)",
+      "In your Chrome Bookmarks bar",
+      "In a newly created Google Slide deck"
+    ],
+    "correctIndex": 1,
+    "explanation": "Action items assigned in Docs or Chat Spaces automatically sync with your Google Tasks list so nothing falls through the cracks."
+  },
+  {
+    "id": 11,
+    "module": "Google Drive",
+    "question": "Why should critical school site files (master bell schedules, emergency procedures, front-office SOPs) be stored in a Shared Drive rather than an individual employee's 'My Drive'?",
+    "options": [
+      "Shared Drives offer unlimited storage for personal vacation photos",
+      "Files in a Shared Drive belong to the school/district permanently, so they don't vanish if an employee retires or transfers sites",
+      "Files in My Drive cannot be shared with anyone else in the district",
+      "Shared Drives automatically convert all Microsoft Word files into PDFs"
+    ],
+    "correctIndex": 1,
+    "explanation": "In a Shared Drive, ownership belongs to the organization/team rather than an individual account, ensuring operational continuity during staff transitions."
+  },
+  {
+    "id": 12,
+    "module": "Google Drive",
+    "question": "The Health Clerk and the Attendance Clerk both need the 'Master Student Emergency Roster' Sheet to appear inside their own department folders. How should you add it to both folders so everyone edits the exact same live roster without creating conflicting versions?",
+    "options": [
+      "Right-click the file and select 'Make a copy', then move the copy to the second folder",
+      "Download the file as an Excel spreadsheet and email it to both clerks",
+      "Right-click the file and select 'Organize > Add shortcut' to place a pointer in the second folder",
+      "Copy and paste the cells into a brand-new Google Sheet"
+    ],
+    "correctIndex": 2,
+    "explanation": "Drive Shortcuts point back to the single original file, preventing roster divergence where two staff members update separate copies."
+  },
+  {
+    "id": 13,
+    "module": "Google Drive",
+    "question": "You need to quickly locate a PDF facility permit sent by your Principal before June 1st of this year. Which Drive search query or Search Chip combination will pinpoint this file immediately?",
+    "options": [
+      "format:doc shared:principal",
+      "type:pdf owner:[principal's email] before:2026-06-01",
+      "find:permit.pdf date<june",
+      "file:pdf from:office"
+    ],
+    "correctIndex": 1,
+    "explanation": "Drive Search Chips and operators like type:pdf, owner:, and before:YYYY-MM-DD filter thousands of files instantly."
+  },
+  {
+    "id": 14,
+    "module": "Google Drive",
+    "question": "How can you visually distinguish a Google Drive Shortcut from an original file when looking inside a Drive folder?",
+    "options": [
+      "Shortcuts always appear in red italic text",
+      "Shortcuts display a small curved arrow badge on the file or folder icon",
+      "Shortcuts have '(Copy of)' automatically added to the beginning of their file name",
+      "Shortcuts only appear at the very bottom of the screen"
+    ],
+    "correctIndex": 1,
+    "explanation": "A small curved arrow overlay on the file icon indicates it is a Shortcut pointing to an original file stored elsewhere."
+  },
+  {
+    "id": 15,
+    "module": "Google Drive",
+    "question": "If you delete a Google Drive Shortcut from your personal folder because you no longer need quick access to it, what happens to the original master file located in the school's Shared Drive?",
+    "options": [
+      "The original master file is permanently deleted for the entire school",
+      "Nothing happens to the original file; only your shortcut pointer is removed",
+      "The original file is locked and becomes view-only for everyone else",
+      "Google Drive emails an alert to the Superintendent"
+    ],
+    "correctIndex": 1,
+    "explanation": "Deleting a Drive Shortcut only removes the pointer; the underlying source file remains completely untouched."
+  },
+  {
+    "id": 16,
+    "module": "Google Docs",
+    "question": "You are building a wide 12-column Master Field Trip Roster table in Google Docs, and the columns are getting squished by standard 8.5 x 11 page margins. What format setting expands the canvas dynamically to fit wide tables without page breaks?",
+    "options": [
+      "File > Page setup > Pageless",
+      "View > Full Screen Mode",
+      "Format > Columns > Three Columns",
+      "Tools > Word Count"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pageless format removes page boundaries and side margins, allowing wide tables and rosters to expand cleanly across the screen."
+  },
+  {
+    "id": 17,
+    "module": "Google Docs",
+    "question": "In a Google Doc table tracking field trip packets, you want a clickable, color-coded pill button in each row that lets office staff toggle between 'Pending Admin Review', 'Sent to District', and 'Completed'. What feature should you insert?",
+    "options": [
+      "A Bulleted List",
+      "An @ Dropdown Smart Chip (Insert > Dropdown)",
+      "A Footnote",
+      "A Word Art banner"
+    ],
+    "correctIndex": 1,
+    "explanation": "Status Dropdown chips let you build standardized, color-coded status menus directly inside document text or table cells."
+  },
+  {
+    "id": 18,
+    "module": "Google Docs",
+    "question": "You are updating next year's Bell Schedule draft in Google Docs and want the Assistant Principal to review and approve your exact edits before they replace the current text. Which mode should you switch to in the top-right toolbar?",
+    "options": [
+      "Editing Mode",
+      "Suggesting Mode",
+      "Viewing Mode",
+      "Print Layout Mode"
+    ],
+    "correctIndex": 1,
+    "explanation": "Suggesting Mode tracks every insertion and deletion in colored brackets so administrators can accept or reject changes individually."
+  },
+  {
+    "id": 19,
+    "module": "Google Docs",
+    "question": "Someone accidentally deleted three paragraphs from the shared School Site Council minutes two days ago and closed the tab. How do you safely recover the missing paragraphs without losing today's work?",
+    "options": [
+      "Press Ctrl+Z fifty times",
+      "Open File > Version history > See version history, locate the earlier timestamp, and copy the missing paragraphs (or restore the version)",
+      "Check the Google Drive Trash bin for deleted paragraphs",
+      "Once a browser tab is closed, changes in Google Docs cannot be recovered"
+    ],
+    "correctIndex": 1,
+    "explanation": "Version History keeps a complete chronological log of edits, allowing you to name milestone drafts, restore past versions, or copy specific text from earlier dates."
+  },
+  {
+    "id": 20,
+    "module": "Google Docs",
+    "question": "You have a 4-page Staff Directory table in a standard paged Google Doc, and pages 2, 3, and 4 don't show the column titles at the top. How do you make the top header row repeat automatically across every page?",
+    "options": [
+      "Manually type the header row again at the top of each new page",
+      "Right-click inside the top row of the table, open 'Table properties' (or click 'Pin header up to this row'), and check 'Repeat header row on each page'",
+      "Convert the table into a screenshot image",
+      "Add the column titles into the Document Footer"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pinning a table's header row in Google Docs automatically repeats column titles at the top of every page where the table spans."
+  },
+  {
+    "id": 21,
+    "module": "Google Chat & Spaces",
+    "question": "Your front office team wants a dedicated place for silent desk-to-desk communication during busy parent drop-off hours, where new staff can also see pinned Bell Schedules and search past administrative decisions. What should you create in Google Chat?",
+    "options": [
+      "A dedicated 'Front Desk Operations' Space",
+      "A temporary 1-on-1 Direct Message",
+      "A recurring Google Calendar invite",
+      "An email distribution list in Outlook"
+    ],
+    "correctIndex": 0,
+    "explanation": "Google Chat Spaces provide persistent team channels with pinned resources, shared files, assigned tasks, and searchable history."
+  },
+  {
+    "id": 22,
+    "module": "Google Chat & Spaces",
+    "question": "In your 'Front Desk Operations' Chat Space, the Principal posts an updated Rainy Day Dismissal protocol. How do you keep that specific message easy to find at the top of the Space so it doesn't get buried by daily chat messages?",
+    "options": [
+      "Retype the message at 8:00 AM every morning",
+      "Hover over the message, click the three-dot 'More actions' menu, and select 'Pin' (or view it in the Pinned resource bar)",
+      "Turn off chat history for the Space",
+      "Screenshot the message and set it as your desktop wallpaper"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pinning key messages or resources in a Space makes them immediately accessible from the top header bar for the entire office team."
+  },
+  {
+    "id": 23,
+    "module": "Google Chat & Spaces",
+    "question": "You are part of a busy campus-wide Chat Space, and the constant notification pings are distracting you while you enter attendance, EXCEPT when someone specifically tags you (@yourname). What Space notification setting should you choose?",
+    "options": [
+      "Leave the Space completely",
+      "Set Space notifications to 'Main conversations' or 'Only @mentions' (Notify less)",
+      "Unplug your computer speakers",
+      "Block the Principal's account"
+    ],
+    "correctIndex": 1,
+    "explanation": "Customizing Space notification controls lets you mute general chatter while still receiving alerts whenever you are directly @mentioned."
+  },
+  {
+    "id": 24,
+    "module": "Google Chat & Spaces",
+    "question": "Three months ago in the 'Front Desk Operations' Space, the Assistant Principal shared the gate code for the athletic field, and you need to find it quickly. What is the fastest way to retrieve that message?",
+    "options": [
+      "Scroll up manually through three months of daily messages",
+      "Use the Google Chat Search bar, filter to the 'Front Desk Operations' Space, and search for 'gate code'",
+      "Create a new Space and ask everyone again",
+      "Chat messages older than 7 days cannot be searched"
+    ],
+    "correctIndex": 1,
+    "explanation": "Google Chat's search bar lets you filter by specific Space, sender, or attachment to locate past operational decisions in seconds."
+  },
+  {
+    "id": 25,
+    "module": "Google Chat & Spaces",
+    "question": "Inside your Front Desk Chat Space, which built-in tab lets the office team create and assign shared office tasks (such as 'Order copier paper' or 'Print 8th grade promotion programs') to specific team members with due dates?",
+    "options": [
+      "The 'Tasks' tab at the top of the Space",
+      "The Emoji picker button",
+      "The Chrome History menu",
+      "The Google Meet camera icon"
+    ],
+    "correctIndex": 0,
+    "explanation": "Every Google Chat Space includes a dedicated 'Tasks' tab where team tasks can be created, assigned to staff, and given due dates."
+  },
+  {
+    "id": 26,
+    "module": "Google Sheets",
+    "question": "Five staff members are simultaneously looking at the shared 'School-Wide Bus Roster' Sheet. You need to filter the sheet to see only 4th Grade riders on Bus #3 WITHOUT changing or scrambling the screen for the other four people currently working in the sheet. What feature MUST you use?",
+    "options": [
+      "A standard Filter (Data > Create a filter)",
+      "A Filter View (Data > Filter views > Create new filter view)",
+      "Data > Sort sheet by column A to Z",
+      "Hide Rows 2 through 150 manually"
+    ],
+    "correctIndex": 1,
+    "explanation": "Filter Views apply sorting and filtering strictly to your own screen view without disrupting anyone else collaborating in the shared spreadsheet."
+  },
+  {
+    "id": 27,
+    "module": "Google Sheets",
+    "question": "When scrolling down a 400-row student roster in Google Sheets, Row 1 (containing column headers like 'Student ID', 'Last Name', 'Grade', 'Parent Phone') disappears off the top of the screen. How do you lock Row 1 in place?",
+    "options": [
+      "Select View > Freeze > 1 row (or drag the thick gray freeze bar below Row 1)",
+      "Highlight Row 1 and click Format > Bold",
+      "Right-click Row 1 and select 'Protect range'",
+      "Use Format > Wrapping > Clip"
+    ],
+    "correctIndex": 0,
+    "explanation": "Freezing header rows keeps column titles locked at the top of the viewport while you scroll through hundreds of student records."
+  },
+  {
+    "id": 28,
+    "module": "Google Sheets",
+    "question": "In an Attendance Tracking Sheet, you want Column E to ONLY allow staff to select from four exact options ('Excused', 'Unexcused', 'Illness', 'Truant') so nobody accidentally types 'Excsd' or 'Sick' and breaks your summary formulas. What feature do you configure?",
+    "options": [
+      "Format > Conditional formatting",
+      "Insert > Dropdown (Data > Data validation)",
+      "Data > Split text to columns",
+      "Tools > Spelling and grammar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dropdown Data Validation restricts cell entries to a predefined list of options, eliminating typos and keeping data clean for COUNTIF formulas."
+  },
+  {
+    "id": 29,
+    "module": "Google Sheets",
+    "question": "You want any cell in Column F ('Athletic Physical Status') to automatically turn bright red with bold text whenever the cell contains the words 'Missing' or 'Overdue'. Which Google Sheets tool automates this visual alert?",
+    "options": [
+      "Format > Alternating colors",
+      "Format > Conditional formatting",
+      "Data > Named ranges",
+      "Insert > Chart"
+    ],
+    "correctIndex": 1,
+    "explanation": "Conditional formatting dynamically changes cell background and text colors based on rules like 'Text contains Missing'."
+  },
+  {
+    "id": 30,
+    "module": "Google Sheets",
+    "question": "In your Attendance Sheet, Column E (cells E2:E200) contains attendance codes ('Excused', 'Unexcused', 'Illness', 'Truant'). Which formula will automatically count ONLY the students marked as 'Unexcused'?",
+    "options": [
+      "=SUM(E2:E200, \"Unexcused\")",
+      "=COUNTA(E2:E200)",
+      "=COUNTIF(E2:E200, \"Unexcused\")",
+      "=AVERAGE(E2:E200)"
+    ],
+    "correctIndex": 2,
+    "explanation": "COUNTIF counts the number of cells within a range that match a specific criterion (such as \"Unexcused\")."
+  },
+  {
+    "id": 31,
+    "module": "Google Forms",
+    "question": "You created a 'Staff Supply Request' Google Form and linked it to a Google Sheet. How do you ensure the office clerk receives an immediate email alert every time a teacher submits a new request?",
+    "options": [
+      "Refresh the Google Sheet every 10 minutes throughout the day",
+      "In the Google Form 'Responses' tab, click the three-dot menu and check 'Get email notifications for new responses'",
+      "Change the Form theme color to red",
+      "Turn on 'Collect email addresses' in Form Settings"
+    ],
+    "correctIndex": 1,
+    "explanation": "Enabling 'Get email notifications for new responses' in the Form's Responses tab sends an instant alert whenever a new entry arrives."
+  },
+  {
+    "id": 32,
+    "module": "Google Forms",
+    "question": "Why is it best practice to protect the raw 'Form Responses 1' tab in Google Sheets and do your sorting, notes, and status tracking on a separate 'Office Tracking' tab?",
+    "options": [
+      "Google Forms automatically deletes the 'Form Responses 1' tab every Friday at 5:00 PM",
+      "New Form submissions insert brand-new rows into 'Form Responses 1', which can misalign manual columns, overwrite formulas, or break formatting if edited directly",
+      "You are not allowed to view the 'Form Responses 1' tab once a Form is published",
+      "A Google Sheet can only hold 10 rows of data on its first tab"
+    ],
+    "correctIndex": 1,
+    "explanation": "Because Google Forms inserts newly submitted rows directly into the raw response tab, keeping manual office tracking on a separate tab prevents formula and alignment issues."
+  },
+  {
+    "id": 33,
+    "module": "Google Forms",
+    "question": "You built a new 'Student Late Sign-In' Google Form, and instead of creating a brand-new standalone spreadsheet, you want the responses to feed into a new tab inside your existing '2026-2027 Master Front Office' Google Sheet. How do you set this up?",
+    "options": [
+      "Copy and paste the responses manually every afternoon",
+      "In the Form 'Responses' tab, click 'Link to Sheets' (or 'Select destination for responses') and choose 'Select existing spreadsheet'",
+      "Download the responses as a CSV file and email them to yourself",
+      "Google Forms can only link to brand-new spreadsheets"
+    ],
+    "correctIndex": 1,
+    "explanation": "When linking a Google Form to Sheets, choosing 'Select existing spreadsheet' routes live submissions straight into a dedicated tab inside your master workbook."
+  },
+  {
+    "id": 34,
+    "module": "Google Forms",
+    "question": "Teachers are submitting the 'Classroom Tech & Supply Request' Form, but some are forgetting to type their Room Number, leaving you guessing where to deliver supplies. How do you prevent anyone from submitting the Form without filling in their Room Number?",
+    "options": [
+      "Write 'PLEASE DO NOT FORGET' in all caps in the form title",
+      "Toggle the 'Required' switch ON at the bottom of the Room Number question card",
+      "Add a picture of a classroom to the top of the Form",
+      "Lock the Form so nobody can submit it"
+    ],
+    "correctIndex": 1,
+    "explanation": "Marking critical intake questions as 'Required' prevents respondents from submitting incomplete forms."
+  },
+  {
+    "id": 35,
+    "module": "Google Forms",
+    "question": "When building a 'Teacher Absence / Sub Request' Form for your school site, which Form setting automatically records the exact WVUSD email address of the staff member submitting the form so they can't misspell their own email?",
+    "options": [
+      "Settings > Responses > Collect email addresses: Verified (or Responder input) & Restrict to users in Walnut Valley USD",
+      "Settings > Presentation > Show progress bar",
+      "Settings > Make this a quiz",
+      "Add a multiple-choice question with every employee's email listed"
+    ],
+    "correctIndex": 0,
+    "explanation": "Enabling 'Collect email addresses' alongside domain restriction automatically captures the authenticated staff member's district email."
+  },
+  {
+    "id": 36,
+    "module": "Google Slides",
+    "question": "Why would a front-office secretary use Google Slides instead of Google Docs to design a printable 8.5 x 11 'Visitor Sign-In Notice' flyer with multi-layered shapes and masked photos?",
+    "options": [
+      "Google Docs does not allow you to change font sizes",
+      "By changing File > Page setup > Custom to 8.5 x 11 inches in Slides, you get free-form canvas positioning, layering, and alignment tools without fighting text-wrapping margins",
+      "Google Slides is the only app that can print in color",
+      "Google Docs cannot export files as PDFs"
+    ],
+    "correctIndex": 1,
+    "explanation": "Setting Google Slides to 8.5 x 11 inches turns it into a desktop publishing canvas where images, shapes, and text boxes can be layered and aligned freely."
+  },
+  {
+    "id": 37,
+    "module": "Google Slides",
+    "question": "You built a 10-slide 'Welcome & Daily Announcements' presentation in Google Slides to run unattended all day on the front lobby TV monitor. When using 'Publish to the web' or Presenter View auto-play, what two settings ensure it runs continuously?",
+    "options": [
+      "Set an auto-advance timer (e.g., every 10 seconds) AND check 'Restart the slideshow after the last slide'",
+      "Share the presentation with every parent's email address",
+      "Change the slide dimensions to 8.5 x 11 portrait",
+      "Add speaker notes to every slide"
+    ],
+    "correctIndex": 0,
+    "explanation": "Combining an auto-advance interval with 'Restart the slideshow after the last slide' creates a continuous, hands-free lobby kiosk loop."
+  },
+  {
+    "id": 38,
+    "module": "Google Slides",
+    "question": "On your printable Principal's Newsletter slide, you want the Principal's rectangular headshot photo to appear neatly cropped inside a circle badge without leaving Google Slides. Which tool do you use?",
+    "options": [
+      "Select the image, click the small dropdown arrow next to the 'Crop image' icon ('Mask image'), and choose the Circle/Oval shape",
+      "Draw a white square over the corners of the photo",
+      "Delete the photo and insert an emoji instead",
+      "Change the slide background color to black"
+    ],
+    "correctIndex": 0,
+    "explanation": "The 'Mask image' dropdown next to the Crop tool lets you crop any photo directly into circles, rounded rectangles, arrows, or callout shapes."
+  },
+  {
+    "id": 39,
+    "module": "Google Slides",
+    "question": "You placed four parent information boxes across a flyer in Google Slides, but they look slightly uneven and crooked. How do you make them line up perfectly along their tops with identical gaps between them in two clicks?",
+    "options": [
+      "Drag them around with your mouse while squinting at the screen",
+      "Select all four boxes, click Arrange > Align > Top, and then click Arrange > Distribute > Horizontally",
+      "Press the Spacebar repeatedly inside each text box",
+      "Put each box on a separate slide"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Arrange > Align and Arrange > Distribute menus snap multiple objects into mathematical alignment and even spacing."
+  },
+  {
+    "id": 40,
+    "module": "Google Slides",
+    "question": "You inserted a decorative gold rectangle banner onto your flyer in Google Slides, and it completely covered up your 'Back to School Night' title text box. How do you move the gold banner behind the text?",
+    "options": [
+      "Delete the text box and retype it on another slide",
+      "Right-click the gold rectangle and select Order > Send backward (or Send to back)",
+      "Make the gold rectangle 1 pixel wide",
+      "Use Tools > Voice type speaker notes"
+    ],
+    "correctIndex": 1,
+    "explanation": "Right-clicking an object and using the 'Order' menu (Bring to front / Send to back) controls how layered shapes, images, and text stack on the slide."
+  }
+]
