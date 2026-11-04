@@ -39,6 +39,16 @@ export const WVUSD_SITES = [
   "Other WVUSD Site / Department"
 ];
 
+export const ALLOWED_EMAIL_DOMAINS = ['wvusd.org', 'sub.wvusd.org'];
+
+export function isValidWvusdEmail(emailStr) {
+  if (!emailStr || typeof emailStr !== 'string') return false;
+  const trimmed = emailStr.trim().toLowerCase();
+  const parts = trimmed.split('@');
+  if (parts.length !== 2 || !parts[0]) return false;
+  return ALLOWED_EMAIL_DOMAINS.includes(parts[1]);
+}
+
 export default function IntakeScreen({ candidate, onStartExam }) {
   const [fullName, setFullName] = useState(candidate?.fullName || '');
   const [site, setSite] = useState(candidate?.site || '');
@@ -55,8 +65,8 @@ export default function IntakeScreen({ candidate, onStartExam }) {
       setError('Please select your WVUSD School Site or Department.');
       return;
     }
-    if (!email.trim() || !email.includes('@')) {
-      setError('Please enter a valid WVUSD email address (e.g., jsmith@wvusd.org).');
+    if (!isValidWvusdEmail(email)) {
+      setError('Access Restricted: Please sign in with an official @wvusd.org or @sub.wvusd.org email address.');
       return;
     }
     setError('');
@@ -226,12 +236,13 @@ export default function IntakeScreen({ candidate, onStartExam }) {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="username@wvusd.org"
+                  placeholder="username@wvusd.org or username@sub.wvusd.org"
                   className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white text-slate-800 placeholder-slate-400 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#4285F4] focus:border-transparent transition-all"
                 />
               </div>
-              <p className="mt-1.5 text-xs text-slate-500">
-                Your certification diagnostic report will be linked to this email address.
+              <p className="mt-1.5 text-xs text-slate-500 flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#34A853] shrink-0" />
+                <span>Restricted to <code className="font-bold text-slate-700">@wvusd.org</code> and <code className="font-bold text-slate-700">@sub.wvusd.org</code> accounts only.</span>
               </p>
             </div>
 

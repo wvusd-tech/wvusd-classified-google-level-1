@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import IntakeScreen from './components/IntakeScreen';
+import IntakeScreen, { isValidWvusdEmail } from './components/IntakeScreen';
 import McqSection from './components/McqSection';
 import ResultsView from './components/ResultsView';
 import {
@@ -35,7 +35,11 @@ export default function App() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        return { ...DEFAULT_STATE, ...parsed };
+        const restored = { ...DEFAULT_STATE, ...parsed };
+        if (restored.stage !== 'intake' && !isValidWvusdEmail(restored.candidate?.email)) {
+          restored.stage = 'intake';
+        }
+        return restored;
       }
     } catch (err) {
       console.error('Could not load saved exam state from localStorage:', err);

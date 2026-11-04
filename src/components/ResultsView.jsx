@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { getOrCreateActiveQuestions } from '../utils/examRandomizer';
+import { submitScoreToGoogleSheet, getGoogleSheetsWebAppUrl } from '../utils/sheetSync';
 import {
   FourColorTopBar,
   getModuleTheme,
@@ -21,6 +22,7 @@ import {
   Mail,
   ArrowRight,
   PartyPopper,
+  CloudUpload,
 } from 'lucide-react';
 
 const ORDERED_MODULES = [
@@ -42,6 +44,8 @@ export default function ResultsView({
 }) {
   const [reviewFilter, setReviewFilter] = useState('missed'); // 'missed' | 'all'
   const [showPhase2Modal, setShowPhase2Modal] = useState(false);
+  const [sheetSyncStatus, setSheetSyncStatus] = useState('idle'); // 'idle' | 'saving' | 'saved' | 'unconfigured' | 'error'
+  const hasSubmittedRef = useRef(false);
 
   const activeQuestions =
     Array.isArray(propQuestions) && propQuestions.length === 25
@@ -110,6 +114,56 @@ export default function ResultsView({
   const missedQuestions = evaluatedQuestions.filter((q) => !q.isCorrect);
   const displayedQuestions =
     reviewFilter === 'missed' ? missedQuestions : evaluatedQuestions;
+
+  // Automatically post exam results to Google Sheet (`1o4GHw7cTs0TSaIBVLvo2IOWVur2xLzdOoxEMeRyWqbw`) once per attempt
+  useEffect(() => {
+    if (hasSubmittedRef.current) return;
+    hasSubmittedRef.current = true;
+
+    const submissionLockKey = `wvusd_level1_synced_${candidate?.startedAt || 'session'}`;
+    if (localStorage.getItem(submissionLockKey) === 'true') {
+      setSheetSyncStatus('saved');
+      return;
+    }
+
+    if (!getGoogleSheetsWebAppUrl()) {
+      setSheetSyncStatus('unconfigured');
+      return;
+    }
+
+    const moduleBreakdownPayload = {};
+    ORDERED_MODULES.forEach((modName) => {
+      const st = moduleStats[modName];
+      moduleBreakdownPayload[modName] = `${st.correct}/${st.total}`;
+    });
+
+    const payload = {
+      fullName: candidate?.fullName || '',
+      email: candidate?.email || '',
+      site: candidate?.site || '',
+      startedAt: candidate?.startedAt || '',
+      percentage,
+      correctCount,
+      totalQuestions,
+      passed,
+      moduleBreakdown: moduleBreakdownPayload,
+      missedQuestionIds: missedQuestions.map((q) => `Q${q.id}`),
+    };
+
+    setSheetSyncStatus('saving');
+    submitScoreToGoogleSheet(payload)
+      .then((res) => {
+        if (res?.skipped) {
+          setSheetSyncStatus('unconfigured');
+        } else {
+          localStorage.setItem(submissionLockKey, 'true');
+          setSheetSyncStatus('saved');
+        }
+      })
+      .catch(() => {
+        setSheetSyncStatus('error');
+      });
+  }, []);
 
   // Trigger Google 4-color celebratory confetti burst if passed (>= 80%)
   useEffect(() => {
@@ -207,6 +261,24 @@ export default function ResultsView({
                 <Mail className="w-4 h-4 text-[#34A853]" />
                 {candidate.email}
               </span>
+              {sheetSyncStatus === 'saving' && (
+                <>
+                  <span className="text-slate-300">|</span>
+                  <span className="inline-flex items-center gap-1.5 text-[#4285F4]">
+                    <CloudUpload className="w-4 h-4 animate-bounce" />
+                    Saving to WVUSD Google Sheet...
+                  </span>
+                </>
+              )}
+              {sheetSyncStatus === 'saved' && (
+                <>
+                  <span className="text-slate-300">|</span>
+                  <span className="inline-flex items-center gap-1.5 text-[#137333]">
+                    <CheckCircle2 className="w-4 h-4 text-[#34A853]" />
+                    Recorded to WVUSD Master Sheet
+                  </span>
+                </>
+              )}
             </div>
           )}
 
