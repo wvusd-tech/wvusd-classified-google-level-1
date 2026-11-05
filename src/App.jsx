@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import IntakeScreen, { isValidWvusdEmail } from './components/IntakeScreen';
 import McqSection from './components/McqSection';
 import ResultsView from './components/ResultsView';
+import PracticalSection from './components/PracticalSection';
 import {
   getOrCreateActiveQuestions,
   resetAndDrawNewActiveQuestions,
@@ -17,11 +18,16 @@ import { User, RotateCcw, Award, CheckCircle2 } from 'lucide-react';
 const STORAGE_KEY = 'wvusd_google_level_1_exam_state_v1';
 
 const DEFAULT_STATE = {
-  stage: 'intake', // 'intake' | 'quiz' | 'results'
+  stage: 'intake', // 'intake' | 'quiz' | 'results' | 'practical'
   candidate: null,
   answers: {}, // { [questionId]: selectedOptionIndex }
   flagged: {}, // { [questionId]: boolean }
   currentIndex: 0,
+  practicalState: {
+    sheetUrl: '',
+    completedTasks: {},
+    gradingResult: null,
+  },
 };
 
 export default function App() {
@@ -56,6 +62,18 @@ export default function App() {
     }
   }, [examState]);
 
+  // Compute MCQ score out of 25 for passing to PracticalSection
+  const mcqScore = activeQuestions.reduce((acc, q) => {
+    const userChoice = examState.answers[q.id];
+    const correctAnswerString = q.correctAnswer || q.options[q.correctIndex];
+    const selectedAnswerString =
+      typeof userChoice === 'number' ? q.options[userChoice] : userChoice;
+    if (selectedAnswerString !== undefined && selectedAnswerString === correctAnswerString) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+
   const handleStartExam = (candidateData) => {
     // Ensure a valid 25-question stratified draw exists in `wvusd_level1_active_questions`
     const currentDraw = getOrCreateActiveQuestions();
@@ -63,7 +81,11 @@ export default function App() {
     setExamState((prev) => ({
       ...prev,
       stage: 'quiz',
-      candidate: candidateData,
+      candidate: {
+        ...candidateData,
+        name: candidateData.name || candidateData.fullName || '',
+        fullName: candidateData.fullName || candidateData.name || '',
+      },
     }));
   };
 
@@ -102,6 +124,32 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleProceedToPractical = () => {
+    setExamState((prev) => ({
+      ...prev,
+      stage: 'practical',
+    }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToResults = () => {
+    setExamState((prev) => ({
+      ...prev,
+      stage: 'results',
+    }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleUpdatePracticalState = (newPracticalData) => {
+    setExamState((prev) => ({
+      ...prev,
+      practicalState: {
+        ...prev.practicalState,
+        ...newPracticalData,
+      },
+    }));
+  };
+
   const handleResetExam = () => {
     // Clear `wvusd_level1_active_questions` and draw a fresh random stratified set of 25
     const freshDraw = resetAndDrawNewActiveQuestions();
@@ -111,7 +159,8 @@ export default function App() {
       stage: 'intake',
       candidate: examState.candidate
         ? {
-            fullName: examState.candidate.fullName,
+            name: examState.candidate.name || examState.candidate.fullName,
+            fullName: examState.candidate.fullName || examState.candidate.name,
             site: examState.candidate.site,
             email: examState.candidate.email,
           }
@@ -119,6 +168,11 @@ export default function App() {
       answers: {},
       flagged: {},
       currentIndex: 0,
+      practicalState: {
+        sheetUrl: '',
+        completedTasks: {},
+        gradingResult: null,
+      },
     };
     setExamState(freshState);
     try {
@@ -135,7 +189,7 @@ export default function App() {
       <FloatingWorkspaceBackground />
 
       {/* Sticky Top Navigation Header with 4-Color Segmented Top Border */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs">
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs print:hidden">
         <FourColorTopBar height="h-1.5" />
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
           {/* Left Branding */}
@@ -155,7 +209,11 @@ export default function App() {
               </div>
               <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
                 <span className="inline-block w-2 h-2 rounded-full bg-[#34A853]" />
-                <span>Level 1: Foundations Exam</span>
+                <span>
+                  {examState.stage === 'practical'
+                    ? 'Level 1 • Part 2: Hands-On Practical Exam'
+                    : 'Level 1: Foundations Exam'}
+                </span>
               </div>
             </div>
           </div>
@@ -165,7 +223,7 @@ export default function App() {
             {examState.candidate && examState.stage !== 'intake' && (
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100/90 border border-slate-200/70 text-xs font-bold text-slate-700">
                 <User className="w-3.5 h-3.5 text-[#4285F4]" />
-                <span>{examState.candidate.fullName}</span>
+                <span>{examState.candidate.fullName || examState.candidate.name}</span>
                 <span className="text-slate-300">•</span>
                 <span className="text-slate-500 truncate max-w-[180px]">
                   {examState.candidate.site}
@@ -215,13 +273,26 @@ export default function App() {
             questions={activeQuestions}
             candidate={examState.candidate}
             answers={examState.answers}
+            onProceedToPractical={handleProceedToPractical}
+            onResetExam={handleResetExam}
+          />
+        )}
+
+        {examState.stage === 'practical' && (
+          <PracticalSection
+            candidate={examState.candidate}
+            mcqScore={mcqScore}
+            totalMcq={activeQuestions.length}
+            savedPracticalState={examState.practicalState}
+            onUpdatePracticalState={handleUpdatePracticalState}
+            onBackToResults={handleBackToResults}
             onResetExam={handleResetExam}
           />
         )}
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 py-5 px-4 text-center text-xs font-medium text-slate-400 border-t border-slate-200/60 bg-white/70 backdrop-blur-xs">
+      <footer className="relative z-10 py-5 px-4 text-center text-xs font-medium text-slate-400 border-t border-slate-200/60 bg-white/70 backdrop-blur-xs print:hidden">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-[#4285F4]" />

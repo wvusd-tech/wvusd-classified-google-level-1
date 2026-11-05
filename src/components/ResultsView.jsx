@@ -40,10 +40,10 @@ export default function ResultsView({
   questions: propQuestions,
   candidate,
   answers,
+  onProceedToPractical,
   onResetExam,
 }) {
   const [reviewFilter, setReviewFilter] = useState('missed'); // 'missed' | 'all'
-  const [showPhase2Modal, setShowPhase2Modal] = useState(false);
   const [sheetSyncStatus, setSheetSyncStatus] = useState('idle'); // 'idle' | 'saving' | 'saved' | 'unconfigured' | 'error'
   const hasSubmittedRef = useRef(false);
 
@@ -339,10 +339,10 @@ export default function ResultsView({
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
-              onClick={() => setShowPhase2Modal((prev) => !prev)}
-              className="px-6 py-3.5 rounded-xl bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#4285F4]/25 transition-all inline-flex items-center gap-2.5 cursor-pointer group"
+              onClick={onProceedToPractical}
+              className="px-6 py-3.5 rounded-xl bg-[#0F9D58] hover:bg-[#0B8043] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#0F9D58]/30 transition-all inline-flex items-center gap-2.5 cursor-pointer group"
             >
-              <DriveTriangleLogo className="w-5 h-5 bg-white rounded-md p-0.5" />
+              <SheetsGridLogo className="w-5 h-5 bg-white rounded-md p-0.5" />
               <span>Proceed to Part 2: Hands-On Practical Exam</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -356,33 +356,6 @@ export default function ResultsView({
               <span>Retake / Reset Exam</span>
             </button>
           </div>
-
-          {/* Phase 2 Coming Soon Expandable Preview Banner */}
-          {showPhase2Modal && (
-            <div className="mt-6 max-w-2xl mx-auto p-5 rounded-2xl bg-blue-50/70 border-2 border-dashed border-[#4285F4]/50 text-left transition-all">
-              <div className="flex items-start gap-3.5">
-                <div className="p-2.5 bg-white rounded-xl shadow-xs border border-blue-100 shrink-0">
-                  <DriveTriangleLogo className="w-8 h-8" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#4285F4] text-white">
-                      Phase 2 — Coming Soon
-                    </span>
-                    <span className="text-xs font-bold text-slate-500">
-                      Live Google Drive URL Grader
-                    </span>
-                  </div>
-                  <h3 className="text-base font-extrabold text-slate-900 mt-1.5">
-                    Part 2: Hands-On Practical Performance Tasks
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                    In Phase 2, you will complete hands-on WVUSD tasks inside Google Drive, Docs, Sheets, Forms, and Slides, then paste your shareable folder link here for instant automated verification!
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 

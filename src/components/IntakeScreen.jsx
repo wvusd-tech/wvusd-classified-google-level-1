@@ -70,8 +70,10 @@ export default function IntakeScreen({ candidate, onStartExam }) {
       return;
     }
     setError('');
+    const trimmedName = fullName.trim();
     onStartExam({
-      fullName: fullName.trim(),
+      name: trimmedName,
+      fullName: trimmedName,
       site,
       email: email.trim().toLowerCase(),
       startedAt: candidate?.startedAt || new Date().toISOString(),
