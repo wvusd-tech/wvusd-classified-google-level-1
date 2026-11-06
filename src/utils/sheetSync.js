@@ -8,6 +8,9 @@
 
 export const TARGET_SPREADSHEET_ID = '1o4GHw7cTs0TSaIBVLvo2IOWVur2xLzdOoxEMeRyWqbw';
 
+export const LEVEL_1_BADGE_URL =
+  'https://res.cloudinary.com/djv9u4054/image/upload/v1793922959/Gemini_Generated_Image_bjrvwybjrvwybjrv_chojr1.jpg';
+
 // Deployed Google Apps Script Web App URL for capturing WVUSD Level 1 exam scores
 const FALLBACK_WEBAPP_URL =
   'https://script.google.com/macros/s/AKfycbx7KiKdQVgI3X2fJmJuMGIZiM9pQStJmXkPuaVn1ceq-hO0049BFQPDOtuB5OaLVMR1/exec';

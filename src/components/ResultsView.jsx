@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { getOrCreateActiveQuestions } from '../utils/examRandomizer';
-import { submitScoreToGoogleSheet, getGoogleSheetsWebAppUrl } from '../utils/sheetSync';
+import {
+  submitScoreToGoogleSheet,
+  getGoogleSheetsWebAppUrl,
+  LEVEL_1_BADGE_URL,
+} from '../utils/sheetSync';
 import {
   FourColorTopBar,
   getModuleTheme,
@@ -146,6 +150,8 @@ export default function ResultsView({
       correctCount,
       totalQuestions,
       passed,
+      badgeUrl: LEVEL_1_BADGE_URL,
+      sendBadgeEmail: passed,
       moduleBreakdown: moduleBreakdownPayload,
       missedQuestionIds: missedQuestions.map((q) => `Q${q.id}`),
     };
@@ -275,10 +281,44 @@ export default function ResultsView({
                   <span className="text-slate-300">|</span>
                   <span className="inline-flex items-center gap-1.5 text-[#137333]">
                     <CheckCircle2 className="w-4 h-4 text-[#34A853]" />
-                    Recorded to WVUSD Master Sheet
+                    {passed
+                      ? 'Recorded & Level 1 Badge Emailed'
+                      : 'Recorded to WVUSD Master Sheet'}
                   </span>
                 </>
               )}
+            </div>
+          )}
+
+          {/* Official Level 1 Digital Badge Showcase (when passed) */}
+          {passed && (
+            <div className="mt-6 max-w-xl mx-auto p-5 rounded-2xl bg-gradient-to-br from-blue-50/70 via-white to-emerald-50/70 border border-[#34A853]/30 shadow-sm flex flex-col sm:flex-row items-center gap-5 text-left">
+              <a
+                href={LEVEL_1_BADGE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 group"
+                title="View or Download Official Level 1 Badge"
+              >
+                <img
+                  src={LEVEL_1_BADGE_URL}
+                  alt="WVUSD Google Workspace Level 1 Certified Badge"
+                  className="w-28 h-28 sm:w-32 sm:h-32 object-contain rounded-2xl border border-slate-200 bg-white p-1.5 shadow-md group-hover:scale-105 transition-transform"
+                />
+              </a>
+              <div className="text-center sm:text-left">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#34A853]/15 text-[#137333] text-xs font-extrabold uppercase tracking-wider mb-1.5">
+                  <Award className="w-3.5 h-3.5" />
+                  <span>Official Level 1 Digital Badge</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900">
+                  Your Level 1 Badge Has Been Emailed!
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  A copy of your official <strong>WVUSD Google Workspace Level 1 Badge</strong> is sent to{' '}
+                  <span className="font-bold text-slate-800">{candidate?.email}</span>. You can also click the badge image to open and save it directly.
+                </p>
+              </div>
             </div>
           )}
 

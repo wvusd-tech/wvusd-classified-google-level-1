@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import {
+  LEVEL_1_BADGE_URL,
+  submitScoreToGoogleSheet,
+} from '../utils/sheetSync';
+import {
   FourColorTopBar,
   SheetsGridLogo,
   DriveTriangleLogo,
@@ -164,6 +168,7 @@ export default function PracticalSection({
         candidateEmail: candidate.email || '',
         schoolSite: candidate.site || '',
         mcqScore: mcqScore,
+        badgeUrl: LEVEL_1_BADGE_URL,
       };
 
       const response = await fetch(GAS_WEBHOOK_URL, {
@@ -187,6 +192,29 @@ export default function PracticalSection({
           ...data,
           gradedAt: new Date().toISOString(),
         });
+
+        const nextPassed =
+          data.passed ?? (typeof data.score === 'number' && data.score >= 80);
+        if (mcqScore >= 20 && nextPassed) {
+          const badgeLockKey = `wvusd_level1_badge_emailed_${candidate?.startedAt || candidateEmail}`;
+          if (localStorage.getItem(badgeLockKey) !== 'true') {
+            submitScoreToGoogleSheet({
+              action: 'send_badge_only',
+              email: candidateEmail,
+              fullName: candidateName,
+              site: schoolSite,
+              correctCount: mcqScore,
+              totalQuestions: totalMcq,
+              practicalScore: data.score,
+              passed: true,
+              badgeUrl: LEVEL_1_BADGE_URL,
+            })
+              .then(() => {
+                localStorage.setItem(badgeLockKey, 'true');
+              })
+              .catch(() => {});
+          }
+        }
       }
     } catch (err) {
       setErrorMsg(
@@ -683,9 +711,19 @@ export default function PracticalSection({
               </div>
 
               <div className="p-8 sm:p-14 text-center relative">
-                {/* Official Seal Header */}
-                <div className="inline-flex items-center justify-center p-4 rounded-3xl bg-slate-50 border-2 border-slate-200/80 shadow-md mb-4">
-                  <GoogleGLogo className="w-12 h-12" />
+                {/* Official Level 1 Badge Header */}
+                <div className="inline-flex flex-col items-center justify-center mb-4">
+                  <img
+                    src={LEVEL_1_BADGE_URL}
+                    alt="WVUSD Google Workspace Level 1 Certified Badge"
+                    className="w-32 h-32 sm:w-36 sm:h-36 object-contain rounded-2xl border-2 border-slate-200/80 bg-white p-2 shadow-lg"
+                  />
+                  {candidateEmail && (
+                    <span className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#34A853]/15 text-[#137333] text-xs font-extrabold print:hidden">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#34A853]" />
+                      <span>Official Level 1 Badge Emailed to {candidateEmail}</span>
+                    </span>
+                  )}
                 </div>
 
                 <div className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#4285F4]">
